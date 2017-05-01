@@ -1,15 +1,7 @@
 package model;
 
 public class ShapeCalculator {
-    private double a;
-    private double b;
-    private double c;
-    private double d;
-    private double e;
-    private double f;
-    private double g;
-    private double h;
-    private double r;
+    private double a,b,c,d,e,f,g,h,r;
 
     public ShapeCalculator(double a, double b, double c, double d, double e, double f, double g, double h, double r) {
         this.a = a;
