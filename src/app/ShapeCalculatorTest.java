@@ -1,7 +1,8 @@
 package app;
 
-import model.ShapeCalculator;
+import model.*;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ShapeCalculatorTest {
@@ -11,12 +12,14 @@ public class ShapeCalculatorTest {
     public static final int CIRCUT_RECTANGLE = 3;
     public static final int EXIT = 4;
 
-
     public static void main(String[] args) {
         System.out.println("Obliczanie pola kwadratu, pola koła, obwodu trójkąta i obwodu prostokąta");
         int option = 0;
         Scanner scanner = new Scanner(System.in);
-        ShapeCalculator shapeCalculator = new ShapeCalculator();
+        SquareBox squareB = new SquareBox();
+        SquareCircle squareC = new SquareCircle();
+        CircutTrangle circutTr = new CircutTrangle();
+        CircutRetangle circutRet = new CircutRetangle();
         do {
             System.out.println("Wybierz opcję");
             System.out.println(SQARE_BOX + " pole kwadratu");
@@ -30,42 +33,53 @@ public class ShapeCalculatorTest {
                 case SQARE_BOX:
                     System.out.println("podaj bok kwadratu: a=");
                     double a = scanner.nextDouble();
-                    double sqb = shapeCalculator.sqareBox(a);
-                    System.out.println("Pole kwadratu o boku " + a + " = " + sqb);
+                    try {
+                        double sqb = squareB.squareBox(a);
+                        System.out.println("Pole kwadratu o boku " + a + " = " + sqb);
+                    } catch (DivideByZeroException e) {
+                        System.err.println("Wprowadz cyfrę większą od 0");
+                    }
                     break;
                 case SQARE_CIRCLE:
-                    System.out.println("podaj promień koła r=");
+                    System.out.println("podaj promień koła r");
                     double r = scanner.nextDouble();
-                    double sqc = shapeCalculator.sqareCircle(r);
-                    System.out.println("Pole koła o promieniu " + r + " = " + sqc);
+                    try {
+                        double sqc = squareC.squareCircle(r);
+                        System.out.println("Pole koła o promieniu " + r + " = " + sqc);
+                    } catch (DivideByZeroException e | InputMismatchException ex) {
+                        System.err.println("Wprowadz cyfrę większą od 0");
+                    }
                     break;
                 case CIRCUT_TRANGLE:
+                    System.out.println("podaj bok trójkąta a");
+                    double a = scanner.nextDouble();
+                    try {
+                        System.out.println("podaj bok trójkąta b");
 
-                    System.out.println("podaj bok trójkąta a=");
-                    double d = scanner.nextDouble();
-                    System.out.println("podaj bok trójkąta b=");
-                    double e = scanner.nextDouble();
-                    System.out.println("podaj bok trójkąta c=");
-                    double f = scanner.nextDouble();
-                    double cirTr = shapeCalculator.circutTriangle(d, e, f);
-                    System.out.println("Obwód trójkąta o bokach a=" + d + ", b=" + e + ",c=" + f + " = " + cirTr);
+                    } catch (DivideByZeroException e) {
+                        System.err.println("Wprowadz cyfrę większą od 0");
+                    }
+                    double b = scanner.nextDouble();
+                    System.out.println("podaj bok trójkąta c");
+
+                    System.err.println("Wprowadz cyfrę większą od 0");
+
+                    double c = scanner.nextDouble();
+                    double cirTr = circutTr.circutTriangle(a,b,c);
+                    System.out.println("Obwód trójkąta o bokach a" + a + ", b=" + b + ",c=" + c + " = " + cirTr);
                     break;
                 case CIRCUT_RECTANGLE:
-                    System.out.println("podaj bok prostokąta a=");
-                    double g = scanner.nextDouble();
-                    System.out.println("podaj bok prostokąta b=");
-                    double h = scanner.nextDouble();
-                    double cirRe = shapeCalculator.circutRetangle(g, h);
-                    System.out.println("Obwód prostokąta o bokach a=" + g + ",b=" + h + " = " + cirRe);
+                    System.out.println("podaj bok prostokąta a");
+                    double a = scanner.nextDouble();
+                    System.out.println("podaj bok prostokąta b");
+                    double b = scanner.nextDouble();
+                    double cirRe = circutRet.circutRetangle(a, b);
+                    System.out.println("Obwód prostokąta o bokach a=" + a + ",b=" + b + " = " + cirRe);
                     break;
             }
         } while (option != EXIT);
 
         System.out.println("Bye bye");
-        System.out.println();
-        System.out.println("WYNIKI: ");
-
-
     }
 }
 
