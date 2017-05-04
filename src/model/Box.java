@@ -1,13 +1,13 @@
 package model;
 
 
-public class SquareBox {
+public class Box {
     private double a;
 
-    public SquareBox(double a) {
+    public Box(double a) {
         this.a = a;
     }
-    public SquareBox(){}
+    public Box(){}
 
     public double getA() {
         return a;

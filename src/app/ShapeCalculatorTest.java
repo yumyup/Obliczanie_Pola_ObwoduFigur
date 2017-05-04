@@ -16,10 +16,10 @@ public class ShapeCalculatorTest {
         System.out.println("Obliczanie pola kwadratu, pola koła, obwodu trójkąta i obwodu prostokąta");
         int option = 0;
         Scanner scanner = new Scanner(System.in);
-        SquareBox squareB = new SquareBox();
-        SquareCircle squareC = new SquareCircle();
-        CircutTrangle circutTr = new CircutTrangle();
-        CircutRetangle circutRet = new CircutRetangle();
+        Box squareB = new Box();
+        Circle squareC = new Circle();
+        Trangle circutTr = new Trangle();
+        Retangle circutRet = new Retangle();
         do {
             System.out.println("Wybierz opcję");
             System.out.println(SQARE_BOX + " pole kwadratu");

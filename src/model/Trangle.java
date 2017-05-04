@@ -1,9 +1,9 @@
 package model;
 
-public class CircutTrangle {
+public class Trangle {
     private double a, b ,c;
 
-    public CircutTrangle(double a, double b, double c) {
+    public Trangle(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -33,7 +33,7 @@ public class CircutTrangle {
         this.c = c;
     }
 
-    public CircutTrangle() {
+    public Trangle() {
     }
 
     public double circutTriangle(double a, double b, double c) {

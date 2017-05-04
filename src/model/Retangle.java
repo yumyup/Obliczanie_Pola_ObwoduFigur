@@ -1,15 +1,15 @@
 package model;
 
-public class CircutRetangle {
+public class Retangle {
     private double a, b;
 
 
-    public CircutRetangle(double a, double b) {
+    public Retangle(double a, double b) {
         this.a = a;
         this.b = b;
     }
 
-    public CircutRetangle() {
+    public Retangle() {
     }
 
     public double getA() {

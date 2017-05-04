@@ -1,13 +1,13 @@
 package model;
 
-public class SquareCircle {
+public class Circle {
     private double r;
 
-    public SquareCircle(double r) {
+    public Circle(double r) {
         this.r = r;
     }
 
-    public SquareCircle() {
+    public Circle() {
     }
 
     public double getR() {
